@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "jsx": "react",    
+    "paths": {
+    "@Mobile-user/*": [
+      "./src/*"
+    ]
+  },
+    "baseUrl": "./src",
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    
+  },
+  "baseUrl": ".",
+  "paths": {
+    "assets/*": ["./src/assets"],
+    "router/*": ["./src/router"],
+    "components/*": ["./src/components"],
+    "containers/*": ["./src/containers"],
+    "screens/*": ["./src/screens"],
+    "utils/*": ["./src/utils"]
+  }
+}
