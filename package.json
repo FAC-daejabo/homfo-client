@@ -4,7 +4,11 @@
   "description": "",
   "packageManager": "pnpm@8.15.4",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "admin": "pnpm --filter web-admin",
+    "mobile": "pnpm --filter modile-user",
+    "webview": "pnpm --filter web-user",
+    "branding": "pnpm --filter web-branding"
   },
   "keywords": [],
   "author": "",

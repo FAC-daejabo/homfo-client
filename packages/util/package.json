@@ -1,0 +1,14 @@
+{
+  "name": "@homfo-client/util",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "main": "src/index.ts", 
+  "scripts": {
+    "test:type": "tsc --noEmit"
+  },
+  "dependencies": {
+    "axios": "^1.6.8",
+    "js-cookie": "^3.0.5"
+  }
+}

@@ -1,0 +1,1 @@
+export {fetchFromApi} from './axios';
