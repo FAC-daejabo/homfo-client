@@ -5,7 +5,6 @@ import useTimerStore from "../../store/context/useTimerStore";
 import AuthButton from "./AuthButton";
 import NoneActiveButton from "./NoneActiveButton";
 import usePhoneNumberStore from "../../store/context/useNumberStore";
-import { useIsFocused } from "@react-navigation/native";
 import { fetchFromApi } from "../../utils/axios";
 
 interface PhoneAuthProps {
@@ -28,9 +27,8 @@ interface PhoneAuthProps {
         setConfirm((prev)=>({...confirm,[key]:value}));
     }
     const authenticationRequest = async (): Promise<void> => {
-        let data = {'userPhoneNum': phonenumber}
         try {
-            const res = await fetchFromApi('POST', `/users/sms-auth`,data);
+            const res = await fetchFromApi('POST', `/users/validate/smsCode`, phonenumber);
             if (res.status === 200) { 
                 setCount(count+1);
                 resetTimer();
@@ -49,7 +47,7 @@ interface PhoneAuthProps {
     const handleRequest = ()=>{
             switch (true) {
                 case count >= 1 && count <= 5:
-                    if (remainingTime>120){
+                    if (remainingTime > 240){
                       Alert.alert("요청은 1분 후 부터 보낼 수 있습니다.")
                     } else {
                       authenticationRequest();
@@ -60,9 +58,10 @@ interface PhoneAuthProps {
                     break;
                 case count > 5:
                     if (remainingTime>0){
-                        Alert.alert("요청은 3분 후 부터 보낼 수 있습니다.")
+                        Alert.alert("요청은 5분 후 부터 보낼 수 있습니다.")
                       } else {
                         authenticationRequest();
+                        setCount(1);
                     }
                     break;
                 default:
@@ -70,11 +69,11 @@ interface PhoneAuthProps {
         }
     const authenticationVerify = async (): Promise<void> => {
         let data = {
-            "userPhoneNum":phonenumber,
-            "authNumber": verifyNumber,
+            "phoneNumber":phonenumber,
+            "code": verifyNumber,
           }
         try {
-            const res = await fetchFromApi('POST', `/users/sms-auth/verify`,data);
+            const res = await fetchFromApi('PATCH', `/users/validate/smsCode`,data);
             if (res.status === 200) {
                 resetTimer();
                 props.setVerifyComplete(true);
@@ -97,7 +96,8 @@ interface PhoneAuthProps {
         }
     },[phonenumber])
     useEffect(()=>{
-        if (verifyNumber.length===4){
+        const verifyRegax = /^\d{6}$/;
+        if (verifyRegax.test(verifyNumber)){
             onChangeAuth("verifyAuth", true);}
         else {
             onChangeAuth("verifyAuth", false);

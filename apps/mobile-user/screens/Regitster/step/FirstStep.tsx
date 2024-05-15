@@ -31,9 +31,14 @@ export const FirstStep = ({formData, onChangeText, possible, setPossible}: regis
 
     const doubleCheck = async (key: string,data: string): Promise<void> => {
         try {
-            const res = await fetchFromApi('GET', `/users/auth/duplicate/${key}/${data}`);
-            if (res.status === 200) {
-              console.log(res.data)
+            let url = "";
+            if (key === 'account'){
+              url = `/users/validate/duplicateAccount`
+            } else if (key === 'nickname'){
+              url = `/users/validate/duplicateNickname`
+            }
+            const res = await fetchFromApi('POST', url, data);
+            if (!res.data) {
               if (key==="nickname"){
                 setMessage(prev=>({...prev,[key]:"사용 가능한 닉네임입니다."}));
               } else if (key==="account") {
@@ -41,14 +46,21 @@ export const FirstStep = ({formData, onChangeText, possible, setPossible}: regis
               } 
                 setPossible(prev=>({...prev,[key]:true}));
                 setColor(prev=>({...prev,[key]:"#39A03E"}));
+            } else {
+              if (key==="nickname"){
+                setMessage(prev=>({...prev,[key]:"중복된 닉네임 입니다."}));
+              } else if (key==="account") {
+                setMessage(prev=>({...prev,[key]:"중복된 아이디 입니다."}));
+              } 
+              setColor(prev=>({...prev,[key]:"#FF6666"}));
             }
         } catch (e:any) {
-            setMessage(prev=>({...prev,[key]:e.response.data.message}));
+            setMessage(prev=>({...prev,[key]:"영문(대소문자가능),숫자,한글 가능 8~15글자 닉네임을 입력해주세요."}));
             setColor(prev=>({...prev,[key]:"#FF6666"}));
         }
       };
       const nickNameRegex =  /^[가-힣a-zA-Z0-9]{1,15}$/;
-      const debouncedNickname = useDebounce(formData.nickName, 500);
+      const debouncedNickname = useDebounce(formData.nickname, 500);
       useEffect(() => {
         if (debouncedNickname.length===0){
           setMessage(prev=>({...prev,"nickname":"영문(대소문자가능),숫자,한글로 15글자이내로 입력해주세요."}));
@@ -66,7 +78,7 @@ export const FirstStep = ({formData, onChangeText, possible, setPossible}: regis
       }, [debouncedNickname]);
 
       const idRegex =  /^[a-zA-Z0-9]{8,15}$/
-      const debouncedId = useDebounce(formData.userAccount, 500);
+      const debouncedId = useDebounce(formData.account, 500);
       useEffect(() => {
         if (debouncedId.length === 0){
           setMessage(prev=>({...prev,"account":"영문,숫자만 포함 8-15글자의 아이디를 입력해주세요."}));
@@ -84,7 +96,7 @@ export const FirstStep = ({formData, onChangeText, possible, setPossible}: regis
        }, [debouncedId]);
 
        const passwordRegax=  /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,15}$/
-       const debouncedPassword = useDebounce(formData.userPassword, 500);
+       const debouncedPassword = useDebounce(formData.password, 500);
        useEffect(() => {
          if (debouncedPassword.length === 0){
            setMessage(prev=>({...prev,"password":"영문,숫자,특수기호 포함 8~15글자의 비밀번호를 입력해주세요."}));
@@ -126,9 +138,9 @@ export const FirstStep = ({formData, onChangeText, possible, setPossible}: regis
         <StyledText>닉네임</StyledText>
         <StyledView>
             <StyledTextInput
-              value={formData.nickName}
+              value={formData.nickname}
               placeholderTextColor ="lightgrey"
-              onChangeText={(text: string) => onChangeText("nickName", text)}
+              onChangeText={(text: string) => onChangeText("nickname", text)}
               placeholder={"닉네임을 입력해주세요."}
               maxLength={15}
               autoCorrect={false}
@@ -141,9 +153,9 @@ export const FirstStep = ({formData, onChangeText, possible, setPossible}: regis
           <StyledText>아이디</StyledText>
           <StyledView>
             <StyledTextInput
-              value={formData.userAccount}            
+              value={formData.account}            
               placeholderTextColor ="lightgrey"
-              onChangeText={(text: string) => onChangeText("userAccount", text)}
+              onChangeText={(text: string) => onChangeText("account", text)}
               placeholder={"아이디를 입력해주세요."}
               maxLength={15}
               autoCorrect={false}
@@ -157,9 +169,9 @@ export const FirstStep = ({formData, onChangeText, possible, setPossible}: regis
           <StyledView>
             <StyledTextInput
               secureTextEntry={true}
-              value={formData.userPassword}
+              value={formData.password}
               placeholderTextColor ="lightgrey"
-              onChangeText={(text: string) => onChangeText("userPassword", text)}
+              onChangeText={(text: string) => onChangeText("password", text)}
               placeholder={"비밀번호를 입력해주세요."}
               maxLength={20}
               autoCorrect={false}

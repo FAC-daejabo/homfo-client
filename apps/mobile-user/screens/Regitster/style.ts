@@ -28,6 +28,7 @@ export const NumberTextInput = styled.TextInput`
   padding-left: 10px;
   height: 45px;
   margin-top: 8px;
+  padding-vertical: 5px;
   margin-right: 3px;
 `;
 export const Buttontext = styled.Text<StyledButtonTextProps>`
@@ -47,7 +48,9 @@ export const StyledVerifybutton = styled.TouchableOpacity<StyledButtonProps>`
 export const StyledTextInput = styled.TextInput`
   padding: 0;
   height: 30px;
+  width: 54%;
   color: #D1D1D1;
+  padding-vertical: 5px;
 `;
 
 export const Container = styled.View`

@@ -1,10 +1,10 @@
 export {type UserFormData};
 interface UserFormData {
-	userAccount: string;
-	userPassword: string;
-  nickName: string;
-  userPhoneNum: string;
+	account: string;
+	password: string;
+  nickname: string;
+  phoneNumber: string;
   gender: string|null;
   job: string|null;
-  dateOfBirth: string|null;
+  birthday: string|null;
 }

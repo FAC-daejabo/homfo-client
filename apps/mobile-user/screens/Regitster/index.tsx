@@ -15,13 +15,13 @@ const Register = ({ navigation }: any) => {
   const {phonenumber, setPhonenumber} = usePhoneNumberStore();
   const [possible, setPossible]= useState({"nickname":false,"account":false,"password":false,"checkPassword":false});
   const [formData, setFormData] = useState<UserFormData>({
-    userAccount: "",
-    userPassword: "",
-    nickName: "",
-    userPhoneNum: "",
+    account: "",
+    password: "",
+    nickname: "",
+    phoneNumber: "",
     gender: null,
     job: null,
-    dateOfBirth: null,
+    birthday: null,
   });
   const [detailJob, setDetailJob] = useState<string>("");
   const handleRegister = async ()=>{

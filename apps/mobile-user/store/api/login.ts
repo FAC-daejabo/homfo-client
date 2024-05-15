@@ -16,10 +16,11 @@ export const fetchUserInfo = async (tokenValue: string, setUserInfo:(newUser: Us
 export const signIn = async (id: string, password: string, setUserInfo:(newUser: UserInfo) => void) => {
     try {
       let body = {
-        userAccount: id,
-        userPassword: password
+        account: id,
+        password: password
       }
       const res = await fetchFromApi('POST',`/users/sign-in`, body);
+      console.log(res.data)
       fetchUserInfo(res.headers.authorization, setUserInfo);
       return true;
     } catch (error: any) {
