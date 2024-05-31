@@ -1,6 +1,7 @@
 import { Alert } from "react-native";
 import { fetchFromApi } from "../../utils/axios";
 import { UserInfo } from "../interface/login";
+import { storeData } from "../../utils/asyncStorage";
 
 export const fetchUserInfo = async (tokenValue: string, setUserInfo:(newUser: UserInfo) => void) => {
   try {
@@ -21,7 +22,8 @@ export const signIn = async (id: string, password: string, setUserInfo:(newUser:
       }
       const res = await fetchFromApi('POST',`/users/sign-in`, body);
       console.log(res.data)
-      fetchUserInfo(res.headers.authorization, setUserInfo);
+      // fetchUserInfo(res.headers.authorization, setUserInfo);
+      
       return true;
     } catch (error: any) {
       Alert.alert("아이디, 비밀번호를 확인 해주세요");

@@ -7,7 +7,7 @@ import { signIn } from '../../store/api/login';
 const Login = ({ navigation }: any) => {
   const [id, setId] = useState<string>("");
   const [password, setPassword] = useState<string>("");
-  const {userInfo, setUserInfo} = useUserStore();
+  const { userInfo, setUserInfo } = useUserStore();
   const onLoginEvent = async ()=>{
     if (await signIn(id, password, setUserInfo)){
       navigation.navigate('Home');  

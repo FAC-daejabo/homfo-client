@@ -7,9 +7,20 @@
     color: black;
 }
 
+.input{
+    height: 30px;
+    width: 30vw;
+    background-color: white;
+    border: 1px solid grey;
+    color:black;
+    margin: 0;
+}
+
 .box{
     justify-content: space-between;
     display: flex;
+    margin: 10px 0px;
+    width: 50vw;
 }
 
 .title{
@@ -17,6 +28,10 @@
 }
 
 .button{
+    width: 100px;
+    margin: 0px 5px;
+}
+.submitButton{
+    margin: 0px 5px;
     width: 100%;
-    margin: 20px 0px;
 }

@@ -1,7 +1,7 @@
 .container {
     width: 100vw;
     height: 100vh;
-    position: relative;
+    // position: relative;
 }
 
 .box{
@@ -15,6 +15,14 @@
     color: black;
 }
 
-.button{
-    margin: 20px;
+.input{
+    height: 30px;
+    width: 20vw;
+    background-color: white;
+    border: 1px solid grey;
+    color:black;
+}
+.submitButton{
+    margin: 5px;
+    width: 20vw;
 }

@@ -7,13 +7,24 @@ function Login() {
     const [id, setId] = useState<string>("");
     const [password, setPassword] = useState<string>("");
     const navigate = useNavigate();
-
+    const handleLogin = async (id:string, password:string)=>{
+        if (await signIn(id,password)){
+            navigate('/');
+        }
+    }
+    const activeEnter = (e: React.KeyboardEvent<HTMLInputElement>, id:string, password:string) => {
+        if(e.key === "Enter") {
+            handleLogin(id, password);
+        }
+    }
+      
     return (
         <div className={styles.container}> 
             <div className={styles.box}>
                 <div>
                     <div>ID</div> 
                     <input 
+                        className ={styles.input}
                         type="text"
                         maxLength={200}
                         placeholder=""
@@ -24,22 +35,25 @@ function Login() {
                 <div>
                     <div>Password</div>
                     <input 
+                        className ={styles.input}
                         type="text"
                         maxLength={200}
                         placeholder=""
                         value = {password}
+                        onKeyDown={(e) => activeEnter(e, id, password)}
                         onChange={(e)=>setPassword(e.target.value)}
                     />
                 </div>
                 <button 
                     type="button" 
-                    className={styles.button}
-                    onClick={()=>signIn(id,password)}
+                    className={styles.submitButton}
+                    onClick={()=>handleLogin(id,password)}
                 >
                     로그인
                 </button>
                 <button 
                     type="button"
+                    className={styles.submitButton}
                     onClick={()=>navigate("/register")}
                 >
                     회원가입

@@ -1,0 +1,18 @@
+.container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    // position: relative;
+}
+
+.contents{
+    width: calc(100% - 280px);
+    min-height: 100vh;
+    overflow-y: scroll;
+}
+
+.header{
+    color: black;
+    margin: 30px;
+    font-weight: 700;
+}

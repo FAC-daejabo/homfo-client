@@ -1,0 +1,18 @@
+.pagination {
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    padding: 0;
+}
+
+.pagelink {
+    padding: 5px 10px;
+    color: #333;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.pagelink:hover {
+    background-color: #f0f0f0;
+}
+

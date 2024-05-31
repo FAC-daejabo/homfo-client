@@ -9,6 +9,7 @@ function App() {
         <Route path="/" Component={router.home}/>
         <Route path="/login" Component={router.login}/>
         <Route path="/register" Component={router.register}/>
+        <Route path="/usermanage/employee" Component={router.employee}/>
       </Routes>
     </>
   )
