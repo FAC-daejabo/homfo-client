@@ -43,11 +43,11 @@ const DetailModal: React.FC<ModalProps> = ({open, setOpen, employee})=>{
             </div>
             <div className={styles.element}>
                 <div>권한</div>              
-                <div>{EmployeeStatus[employee.status]}</div>  
+                <div>{employee.role}</div>  
             </div>
             <div className={styles.element}>
-                <div>권한 상태</div>
-                <div>{employee.role}</div>  
+                <div>계정 상태</div>
+                <div>{EmployeeStatus[employee.status]}</div>  
             </div>
             <button
                 className={styles.button}

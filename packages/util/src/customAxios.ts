@@ -4,7 +4,7 @@ import moment from "moment";
 import qs from 'qs';
 
 axios.defaults.paramsSerializer = (params) => {
-  return qs.stringify(params, { arrayFormat: 'repeat' })
+  return qs.stringify(params, { arrayFormat: 'comma' })
 }
 
 export const EXPIRED_TIME = 1;

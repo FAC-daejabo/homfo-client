@@ -34,7 +34,7 @@ const SideBar  =()=>{
         <div className={styles.tap}>
             <div style={{fontWeight: 700}}>요청하기 관리</div>
             <li
-                onClick={()=>navigate("/")}
+                onClick={()=>navigate("/requestmanage/enrollagency")}
             >
                 협력 공인중개사 정보 등록
             </li>

@@ -15,6 +15,8 @@ const Filter: React.FC<FilterProps> = ({setSortItem, setSortOption, setSearchNam
         setSearchName(s);
     }
     const handleSortEvent = (el: string, opt: string)=>{
+        setSearch("");
+        setSearchName("");
         setSortItem(el);
         setSortOption(opt);
     }
@@ -61,7 +63,7 @@ const Filter: React.FC<FilterProps> = ({setSortItem, setSortOption, setSearchNam
             <option value="name">이름</option>
             <option value="gender">성별</option>
             <option value="birthday">생년월일</option>
-            <option value="job">소속팀</option>
+            <option value="department">소속팀</option>
             <option value="status">권한 상태</option>
             <option value="role">권한</option>
         </select>
