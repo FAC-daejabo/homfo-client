@@ -29,7 +29,7 @@ const EnrollForm: React.FC<EnrollFormProps> = () => {
     } = agencyInfo || {}; // agencyInfo가 null이면 빈 객체를 사용하여 기본값을 적용
 
     const handleEnrollEvent = ()=>{
-        if (name.length === 0){
+        if (realtorName.length === 0){
             alert("이름은 필수 항목입니다.")
         } else {
             if (agencyInfo!==null){
