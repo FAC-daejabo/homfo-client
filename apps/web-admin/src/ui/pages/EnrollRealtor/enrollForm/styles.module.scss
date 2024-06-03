@@ -1,0 +1,61 @@
+.container{
+    color: black;
+    display: flex;  
+    justify-content: center;
+}
+.box{
+    width: 50%;
+    padding: 0% 5%;
+}
+.title{
+    font-size: 1.2em;
+    font-weight: 600;
+}
+
+.notice{
+    font-size: 0.8em;
+    color: grey;
+}
+
+.contents{
+    margin: 20px 0px;
+}
+
+.element {
+    margin :10px 0;
+    font-size: 0.95em;
+    span{
+        color: red;
+        font-size: 1.2em;
+    }
+}
+.input{
+    height: 30px;
+    width: 70%;
+    font-size: 0.9em;
+    border: 1px solid;
+    color:black;
+    border-color: lightgray;
+    padding: 5px 10px;
+    background-color: white;
+}
+.value{  
+    @extend .input;
+    height: 20px;
+}
+
+.bigInput{
+    @extend .input;
+    height: 180px;
+}
+.storeButton{
+    width: 75%;
+    color: #4C8BFF;
+    background-color: white;
+    border:1px solid;
+    border-radius: 5px;
+    &:hover{
+        border-color:grey;
+        color: grey;
+    }
+}

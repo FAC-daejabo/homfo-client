@@ -13,7 +13,6 @@
     background-color: white;
     border: 1px solid grey;
     color:black;
-    margin: 0;
 }
 
 .box{
@@ -28,10 +27,24 @@
 }
 
 .button{
+    color:black;
+    font-size: 13px;
+    background-color: white;
+    border:1px solid;
+    border-radius: 5px;
     width: 100px;
-    margin: 0px 5px;
+    margin-left: 5px;
+    &:hover{
+        border-color:grey;
+        color: grey;
+    }
 }
 .submitButton{
-    margin: 0px 5px;
+    color:white;
+    font-size: 13px;
+    background-color: #842CFF;
+    border:1px solid;
+    border-radius: 5px;
     width: 100%;
+    height: 40px;
 }

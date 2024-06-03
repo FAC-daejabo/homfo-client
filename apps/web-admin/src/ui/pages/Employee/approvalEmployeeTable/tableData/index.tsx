@@ -5,23 +5,23 @@ import DetailModal from '../../../../components/employee/modal/index';
 import { approveEmployee } from '../../../../../apis/employee/employee';
 import useRenderingStore from '../../../../../store/context/employeeRendering';
 import useUserStore from '../../../../../store/context/useUserStore';
-const TableData: React.FC<{ employeeData: employee }> = ({ employeeData })  =>{
+const TableData: React.FC<{ data: employee }> = ({ data })  =>{
     const [open, setOpen] = useState<boolean>(false);
     const { rendering, setRendering}  = useRenderingStore();
     const { userInfo } = useUserStore();
     const handleApproveEmployee = ()=>{
         setRendering(!rendering)
-        approveEmployee(employeeData.id)
+        approveEmployee(data.id)
         
     }
   return (
     <>
-    <DetailModal open ={open} setOpen={setOpen} employee={employeeData}/>
+    <DetailModal open ={open} setOpen={setOpen} employee={data}/>
     <tr>
-        <td>{employeeData?.nickname}</td>
-        <td>{employeeData?.account}</td>
-        <td>{employeeData?.job}</td>
-        <td>{employeeData?.phoneNumber}</td>
+        <td>{data?.nickname}</td>
+        <td>{data?.account}</td>
+        <td>{data?.job}</td>
+        <td>{data?.phoneNumber}</td>
         <td>
             <button 
                 onClick={()=>setOpen(true)}

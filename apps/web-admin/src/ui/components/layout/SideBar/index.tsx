@@ -32,17 +32,33 @@ const SideBar  =()=>{
             </li>
         </div>
         <div className={styles.tap}>
-            <div style={{fontWeight: 700}}>요청하기 관리</div>
+            <div style={{fontWeight: 700}}>협력 중개업소 관리</div>
             <li
-                onClick={()=>navigate("/requestmanage/enrollagency")}
+                onClick={()=>navigate("/agencymanage/enroll")}
             >
-                협력 공인중개사 정보 등록
+                협력 중개업소 등록
             </li>
             <li
                 onClick={()=>navigate("/")}
             >
+                협력 중개업소 목록
+            </li>
+        </div>
+        <div className={styles.tap}>
+            <div style={{fontWeight: 700}}>협력 공인중개사 관리</div>
+            <li
+                onClick={()=>navigate("/realtormanage/enroll")}
+            >
+                협력 공인중개사 등록
+            </li>
+            <li
+                onClick={()=>navigate("/realtormanage/list")}
+            >
                 협력 공인중개사 목록
             </li>
+        </div>
+        <div className={styles.tap}>
+            <div style={{fontWeight: 700}}>요청하기 관리</div>
             <li
                 onClick={()=>navigate("/")}
             >

@@ -31,9 +31,8 @@ function ApprovalEmployeeTable() {
     const headerArray = userInfo.employee.role === "관리자" ? ["이름", "ID", "소속팀", "전화번호", "더보기", "승인 여부"] : ["이름", "ID", "소속팀", "전화번호", "더보기"]
 
     useEffect(()=>{ 
-        console.log(headerArray)
         let params;
-        if (searchName.length>0){
+        if (searchName.length > 0){
             params = {...approvalEmployeeParams, searchName}
         } else {
             params = approvalEmployeeParams
@@ -49,7 +48,9 @@ function ApprovalEmployeeTable() {
                 관리자 회원가입 승인 요청
                 <Filter setSearchName={setSearchName} setSortItem={setSortItem} setSortOption={setSortOption}/>
             </div>
-            <Table headerArray = {headerArray} data={employeeData} Format={TableData}/>
+            <div className={styles.tableContainer}>
+                <Table headerArray = {headerArray} data={employeeData} Format={TableData}/>
+            </div>
             <Pagination totalPages={totalData?.totalPages||0} page={page} setPage={setPage}/>
         </div>
     );

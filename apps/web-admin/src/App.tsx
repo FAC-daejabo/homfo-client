@@ -10,7 +10,8 @@ function App() {
         <Route path="/login" Component={router.login}/>
         <Route path="/register" Component={router.register}/>
         <Route path="/usermanage/employee" Component={router.employee}/>
-        <Route path="/requestmanage/enrollagency" Component={router.enrollAgency}/>
+        <Route path="/realtormanage/enroll" Component={router.enrollRealtor}/>
+        <Route path="/realtormanage/list" Component={router.partnerRealtorList}/>
       </Routes>
     </>
   )

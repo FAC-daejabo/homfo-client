@@ -1,11 +1,20 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import styles from './styles.module.scss'; 
-// import { signIn } from '@web-admin/apis/user/login'; 
-import { useNavigate } from 'react-router-dom';
 function Register() {
+  const [formData, setFormData] = useState({
+    account: "",
+    password: "",
+    nickname: "",
+    phoneNumber: "",
+    gender: null,
+    job: "서비스 사업팀",
+    birthday: null,
+  });
+    useEffect(()=>{ 
+      // 인터페이스 메소드 분리 
+    },[])
     return (
-        <div className={styles.container}>
-        <div>
+      <div className={styles.container}>
           <form onSubmit={()=>console.log("")}>
             <div className={styles.box}>
               <div className={styles.title}>ID</div>
@@ -52,14 +61,6 @@ function Register() {
               />
             </div>
             <div className={styles.box}>
-              <div className={styles.title}>인증번호 입력</div>
-              <input
-                className={styles.input}
-                type="text"
-                placeholder="123456"
-              />
-            </div>
-            <div className={styles.box}>
               <div className={styles.title}>소속팀</div>
               <select       
                 className={styles.input}
@@ -92,8 +93,6 @@ function Register() {
             </div>
             <button className={styles.submitButton}>신청</button>
           </form>
-          <div></div>
-        </div>
       </div>
     );
 }

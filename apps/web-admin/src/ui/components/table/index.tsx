@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import styles from './styles.module.scss'
 import './table.scss'
-import { ITotalEmployee, employee } from '@web-admin/store/type/employee/type';
-interface TableProps {
+import { employee } from '@web-admin/store/type/employee/type';
+import { Agency } from '@web-admin/store/type/agency/type';
+interface TableProps<T> {
     headerArray: string[];
-    data: undefined|employee[];
-    Format: React.FC<{
-        employeeData: employee;
-    }>;
-  }
-const Table: React.FC<TableProps> = ({ headerArray, data, Format }) => {
+    data: T[] | undefined;
+    Format: React.FC<{ data: T }>;
+}
+
+const Table = <T extends employee | Agency>({ headerArray, data, Format }: TableProps<T>) => {
     return(
-    <div className={styles.container}>
+    // <div className={styles.container}>
             <table className="user-table">
                 <thead>
                     <tr>
@@ -21,9 +21,10 @@ const Table: React.FC<TableProps> = ({ headerArray, data, Format }) => {
                     </tr>
                 </thead>
                 <tbody>
-                {data !== undefined && data.map((el: employee)=><Format key={el.account} employeeData={el}/>)}
+                    {data !== undefined && data.map((el) => <Format key={el.id} data={el} />)}
                 </tbody>    
         </table>
-    </div>)
+    // </div>
+    )
 }
 export default Table;

@@ -34,7 +34,7 @@ function InquiryEmployeeTable() {
 
     useEffect(()=>{
         let params;
-        if (searchName.length>0){
+        if (searchName.length > 0){
             params = {...inquiryEmployeeParams, searchName}
         } else {
             params = inquiryEmployeeParams
@@ -50,7 +50,9 @@ function InquiryEmployeeTable() {
                 </div>
                 <Filter setSearchName={setSearchName} setSortItem={setSortItem} setSortOption={setSortOption}/>
             </div>
-            <Table headerArray = {headerArray} data={employeeData} Format={TableData}/>
+            <div className={styles.tableContainer}>
+                <Table headerArray = {headerArray} data={employeeData} Format={TableData}/>
+            </div>
             <Pagination totalPages={totalData?.totalPages||0} page={page} setPage={setPage}/>
         </div>
     );

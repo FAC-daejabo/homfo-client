@@ -1,0 +1,17 @@
+.row{
+    &:hover{
+        color: blue;
+    }
+}
+.modifyButton{
+    color: #4C8BFF;
+    background-color: white;
+    border:1px solid;
+    border-radius: 5px;
+    margin: 5px;
+    z-index: 100;
+    &:hover{
+        border-color:grey;
+        color: grey;
+    }
+}

@@ -15,8 +15,6 @@ export const getEmployeesInfo = async (params: employeeParams, setEmployeeData: 
       const res = await fetchFromApi("GET","/employees/infos/search/pages",
       undefined, params   
        );    
-       console.log(params)
-      console.log(res.data)
       setTotalData(res.data)
       setEmployeeData(res.data.data)
     } catch (error: unknown) {

@@ -1,0 +1,32 @@
+.container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+}
+
+.contents{
+    width: calc(100% - 280px);
+    min-height: 100vh;
+    overflow-y: scroll;
+}
+
+.header{
+    color: black;
+    margin: 30px;
+    font-weight: 700;
+    display: flex;
+    justify-content: space-between;
+}
+
+.loadButton{
+    margin: 5px;
+    color: black;
+    background-color: white;
+    border:1px solid;
+    border-radius: 5px;
+    &:hover{
+        border-color:grey;
+        color: grey;
+    }
+
+}
