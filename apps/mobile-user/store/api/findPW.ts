@@ -6,10 +6,10 @@ import { fetchFromApi } from "../../utils/axios";
 export const registerNewPassword = async (phonenumber: string, password: string) => {
     try {
       let data = {
-            "userPhoneNum": phonenumber,
+            "phoneNumber": phonenumber,
             "newPassword": password
         }
-      const res: AxiosResponse = await fetchFromApi('POST',`/users/find/pw`, data);
+      const res: AxiosResponse = await fetchFromApi('POST',`/users/updates/password`, data);
       return true;
     } catch (error: any) {
       Alert.alert(error.response.data.message)

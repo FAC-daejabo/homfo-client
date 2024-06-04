@@ -6,8 +6,10 @@ import AuthButton from "./AuthButton";
 import NoneActiveButton from "./NoneActiveButton";
 import usePhoneNumberStore from "../../store/context/useNumberStore";
 import { fetchFromApi } from "../../utils/axios";
+import { SmsCodeType } from "../../store/interface/userForm";
 
 interface PhoneAuthProps {
+    smsCodeType: SmsCodeType;
     verifyComplete: boolean;
     setVerifyComplete: React.Dispatch<React.SetStateAction<boolean>>;
   }
@@ -28,7 +30,12 @@ interface PhoneAuthProps {
     }
     const authenticationRequest = async (): Promise<void> => {
         try {
-            const res = await fetchFromApi('POST', `/users/validate/smsCode`, phonenumber);
+            let body =  {
+                "phoneNumber": phonenumber,
+                "type": props.smsCodeType,
+            }
+            console.log(props.smsCodeType)
+            const res = await fetchFromApi('POST', `/users/validate/smsCode`, body);
             if (res.status === 200) { 
                 setCount(count+1);
                 resetTimer();
@@ -71,7 +78,9 @@ interface PhoneAuthProps {
         let data = {
             "phoneNumber":phonenumber,
             "code": verifyNumber,
+            "type": props.smsCodeType,
           }
+          console.log(props.smsCodeType)
         try {
             const res = await fetchFromApi('PATCH', `/users/validate/smsCode`,data);
             if (res.status === 200) {

@@ -5,7 +5,7 @@ import Header from '../../components/layout/header';
 import PhoneAuth from '../../components/phonenumberAuthentication';
 import ConfirmButton from '../../components/button/confirmButton';
 import usePhoneNumberStore from '../../store/context/useNumberStore';
-import { UserFormData } from '../../store/interface/userForm';
+import { SmsCodeType, UserFormData } from '../../store/interface/userForm';
 import { FirstStep } from './step/FirstStep';
 import { SecondStep } from './step/SecondStep';
 import { registerUserInfo } from '../../store/api/register';
@@ -86,6 +86,7 @@ const Register = ({ navigation }: any) => {
           {
             step===2&&
           <PhoneAuth
+            smsCodeType={SmsCodeType.VALIDATE}
             verifyComplete={verifyComplete}
             setVerifyComplete={setVerifyComplete}
           />

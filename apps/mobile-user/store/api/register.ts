@@ -16,8 +16,8 @@ export const registerUserInfo = async (formData: UserFormData, detailJob: string
       } else{
         data = {...formData, phoneNumber: phonenumber, marketingCodeList:marketingInfo }
       } 
-      console.log(data)
       const res: AxiosResponse = await fetchFromApi('POST',`/users/register`, data);
+     console.log(res.data)
       return true;
     } catch (error: any) {
       Alert.alert(error.response.data.message)
