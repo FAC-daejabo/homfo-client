@@ -1,0 +1,32 @@
+@import '/src/styles/utils/utils';
+
+.selector {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 35px;
+    font-size: 1.35rem;
+    font-weight: 700;
+    text-align: center;
+
+    .active {
+        width: 50%;
+        padding-bottom: 10px;
+        border-bottom: 2px solid black;
+    }
+
+    .nonactive {
+        width: 50%;
+        padding-bottom: 20px;
+        color: #b5b3b3;
+    }
+}
+
+.content {
+    position: absolute;
+    width: 100vw;
+    top: 8vh;
+    height: 89vh;
+    margin-top: 1vh;
+    // overflow: auto;
+    overflow-x: hidden;
+}

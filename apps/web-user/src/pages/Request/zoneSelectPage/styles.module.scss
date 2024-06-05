@@ -1,0 +1,38 @@
+.container{
+    margin-top: 2vh;
+    height: 100%;
+    overflow-y: hidden;
+    background-color: #F5F5F5;
+}
+.mapContainer{
+    position: relative;
+    width:90%;
+    height: 62%;
+    margin-left: 5%;
+}
+.question{
+    padding: 10px 0px 10px 20px;
+    white-space:pre-line;
+    background-color: white;
+    font: {
+        size: 25px;
+        weight: 400;
+    }
+    span {
+        color: #842CFF;
+        font-weight: 800;
+        
+    }
+}
+.checkBox{
+    color: #6C00F8;
+    display: flex;
+    align-items: center;
+    height: 30px;
+    margin:25px 20px 0px 20px;
+    font-size: 13px;
+    :last-child{
+        margin:5px;
+    }
+    
+}

@@ -1,0 +1,24 @@
+@import '/src/styles/utils/utils';
+
+.button{
+    position: fixed;
+    left:0;
+    bottom: 0;
+    width:100vw;
+    height: 7.2vh;
+    text-align: center;
+    line-height: 7.25vh;
+    font-size: 1em;
+    font-weight: 600;
+    color: white;
+    z-index: 100;
+}
+.noneactive{
+    @extend .button;
+    background-color: $nonactive-color;
+}
+
+.active{
+    @extend .button;
+   background-color:$key-color;
+}

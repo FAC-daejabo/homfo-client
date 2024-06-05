@@ -1,0 +1,20 @@
+@import '/src/styles/utils/utils';
+.container{
+    width: 100vw;
+    @include centerContainer;
+    height: 10vh;
+    background-color: rgba(0,0,0,0);
+    z-index: 99;
+}
+.image{
+    position: fixed;
+    left:5vw;
+    width:18px;
+}
+.title{
+    font: {
+        size: 1.35em;
+        weight: 700;
+    }
+    line-height: 3.3%;
+}

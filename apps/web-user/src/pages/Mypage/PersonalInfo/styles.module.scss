@@ -1,0 +1,36 @@
+@import '/src/styles/utils/utils';
+$background-color:white;
+.container{
+    @include entireContainer($background-color);
+    align-items: center;
+}
+
+.underline{
+    width: 90vw;
+    border: 1px solid;
+    border-color: grey;
+}
+.blockUnit{
+    margin: 5% 0px;
+}
+.key{
+    font: {
+        size:18px;
+        weight: 700;
+    }
+}
+.value{
+    margin-top: 10px;
+    font-size: 15px;
+    border: 0px;
+    white-space: pre-line;
+}
+.button{
+    background-color: $key-color;
+    height: 7.25vh;
+    position: absolute;
+    bottom:0;
+    width: 100vw;
+    color:white;
+    border-color: $key-color;
+}   

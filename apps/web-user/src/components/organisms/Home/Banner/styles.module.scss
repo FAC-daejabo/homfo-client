@@ -1,0 +1,21 @@
+@import '/src/styles/utils/utils';
+
+.banner {
+    // margin: 20px 0px;
+    position: absolute;
+    width: 100%;
+    bottom: 47%;
+
+}
+
+.imgContainer {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    width: calc(100% - 60px);
+    height: 20vh;
+    img {
+        height: 140px;
+        border-radius: 20px;
+    }
+}

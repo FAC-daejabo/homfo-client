@@ -1,0 +1,41 @@
+.container{
+    width: 100vw;
+    height: 100vh;
+}
+
+.title{
+    font: {
+        size: 1.72em;
+    }
+    margin-top: 10px;
+    margin-left: 20px;
+}
+
+.subTitle{    
+    margin: 20px 0px 40px 20px;
+    color: #646464;
+    
+}
+
+.subSector{    
+    margin: 20px;
+    color: #646464;
+    font-size: 13px;
+    
+}
+
+.agreement{
+    display: flex;
+    :last-child{
+        span {
+            color: #842CFF;
+        }
+    }
+    
+}
+.image{
+    width: 22px;
+    height: 15px;
+    margin: 2px 20px;
+}
+

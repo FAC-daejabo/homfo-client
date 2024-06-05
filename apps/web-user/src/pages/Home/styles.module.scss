@@ -1,0 +1,118 @@
+@import '/src/styles/utils/utils';
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    background: linear-gradient(124.1deg, #842cff 7.96%, #b247ff 79.94%);
+}
+.topContainer {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 35%;
+    left: 0;
+    background: linear-gradient(124.1deg, #842cff 7.96%, #b247ff 79.94%);
+    z-index: 1;
+}
+
+.bottomContainer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 70%;
+    left: 0;
+    background: #ffffff;
+    box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.05);
+    border-radius: 20px;
+    z-index: 80;
+    flex-direction: column;
+}
+.message {
+    font: {
+        size: 1.7em;
+        weight: 400;
+    }
+    color: white;
+    margin: 5%;
+}
+
+.customTitle {
+    font-weight: 700;
+}
+.areaBox {
+    display: flex;
+    width: 55vw;
+    height: 4.83vh;
+    background-color: white;
+    align-items: center;
+    justify-content: center;
+    border-radius: 40px;
+    color: #842cff;
+    font-size: 1.1em;
+    margin-left: 5vw;
+    :first-child {
+        width: 7.18vw;
+        height: 2.42vh;
+        margin: 4px;
+    }
+}
+
+.locationContainer {
+    position: absolute;
+    bottom: 16vh;
+    width: 100%;
+    left: 0;
+    // transform: translateY(45vh);
+    display: flex;
+    justify-content: space-evenly;
+}
+.locationBox {
+    @include centerContainer;
+    flex-direction: column;
+    margin: 5px;
+    background-color: white;
+    border: 1px solid;
+    border: {
+        radius: 10px;
+        color: white;
+    }
+    width: 25vw;
+    height: 25vw;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+.locationFont {
+    font: {
+        size: 11px;
+    }
+}
+
+.news {
+    margin: 10% 30px 0 30px;
+    border-radius: 20px;
+    background: linear-gradient(90deg, #7f31ff 0%, #c89fff 103.88%);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    padding: 20px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .title {
+        font-size: 1.1em;
+        font-weight: 500;
+        margin-bottom: 6px;
+    }
+
+    .content {
+        font-size: 1.2em;
+        font-weight: 800;
+    }
+
+    img {
+        width: 3.5em;
+        height: 3.5em;
+    }
+}

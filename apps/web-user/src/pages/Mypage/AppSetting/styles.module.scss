@@ -1,0 +1,30 @@
+@import '/src/styles/utils/utils';
+$background-color:#F5F5F5;
+.container{
+    @include entireContainer($background-color);
+    align-items: center;
+}
+.block{
+    background-color:#FFFFFF;
+    width: 100vw;
+    margin-bottom: 10px;
+    padding: {
+        left: 20.46vw;
+        top: 10%;
+    };
+}
+.title{
+    color: #9D11FF;
+    font: {
+        size:1.3em;
+        weight: 700;
+    }
+}
+.content{
+    color: #6F7070;
+    font: {
+        size:1.0em;
+        weight: 400;
+    }
+    margin: 25px 0 20px 0;
+}

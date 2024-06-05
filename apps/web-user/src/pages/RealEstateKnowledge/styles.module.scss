@@ -1,0 +1,29 @@
+@import '/src/styles/utils/utils';
+
+$background-color: white;
+
+.container {
+    @include entireContainer($background-color);
+}
+
+.divider {
+    background-color: #EBEBEB;
+    height: 10px;
+}
+
+.content {
+    position: absolute;
+    width: 100vw;
+    top: 10vh;
+    height: 89vh;
+    margin-top: 1vh;
+    overflow: auto;
+    overflow-x: hidden;
+}
+
+.emptySpace{
+    width: 100vw;
+    background-color: $background-color;
+    border-bottom: 2px solid;
+    border-color: #EBEBEB;
+}

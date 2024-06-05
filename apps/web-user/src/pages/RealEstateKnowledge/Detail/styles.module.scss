@@ -1,0 +1,68 @@
+@import '/src/styles/utils/utils';
+
+$background-color: white;
+
+.container {
+    @include entireContainer($background-color);
+}
+
+.content {
+    // position: absolute;
+    width: 100vw;
+    top: 10vh;
+    height: 89vh;
+    margin-top: 1vh;
+    font-size: 0.95em;
+    // overflow: auto;
+    overflow-x: hidden;
+}
+
+.detailContainer {
+    padding: 20px;
+}
+
+.title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.imageContainer {
+    width: 100%;
+    aspect-ratio: auto 1/1;
+    border-radius: 23px;
+    margin-bottom: 20px;
+
+    .img {
+        width: 100%;
+        aspect-ratio: auto 1/1;
+        img {
+            width: 90vw;
+            margin: 0 5vw;
+            // height: 90vw;
+            // margin-bottom: 10px;
+            border-radius: 23px;
+        }
+    }
+
+    .imgInfo {
+        display: flex;
+        justify-content: space-between;
+        img {
+            width: 25px;
+            height: 25px;
+            z-index: 999;
+        }
+    }
+}
+
+.detailInfo {
+    margin-bottom: 20px;
+}
+
+.emptySpace{
+    width: 100vw;
+    background-color: white;
+    border-bottom: 2px solid;
+    border-color: #EBEBEB;
+}

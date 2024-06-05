@@ -1,0 +1,78 @@
+@import '/src/styles/utils/utils';
+$width: 85vw;
+.container{
+    height: 10vh;
+    margin: 3vh 0 1vh 0;
+    flex-direction: column;
+    @include centerContainer;
+
+}
+.filterSlide{
+    position: relative;
+    height: 3px;
+    width: $width;
+    border-radius: 10px;
+    background-color: rgba(230, 230, 230, 1);
+}
+.filterRangeWrap{
+    position:relative;
+}
+.filterSlideInner{
+    position:absolute;
+    left:5vw;
+    right:5vw;
+    height: 3px;
+    border-radius: 10px;
+    background-color: rgba(188, 0, 255, 1);
+}
+.filterRangeNoneActive{
+    margin: 0px;
+    position:absolute;
+    top:-8px;
+    position: absolute;
+    top: -6px;
+    background: none;
+        -webkit-appearance: none;
+    background: none;
+        -webkit-appearance: none;
+
+    width: $width;
+    right:0;
+    &::-webkit-slider-thumb {
+        height: 20px;
+        width: 20px;
+        border-radius: 50%;
+        outline: 1px solid #DEDFDF;
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); 
+        background-color: white;
+        -webkit-appearance: none;
+        z-index:99;
+    }
+      pointer-events: none;
+      &::-webkit-slider-thumb {
+          pointer-events: auto;
+    }
+
+}
+.filterRangeActive{
+    position: absolute;
+    top: -6px;
+    background: none;
+        -webkit-appearance: none;
+    margin: 0px;
+    left:0;
+    width: $width;
+    &::-webkit-slider-thumb {
+        height: 15px;
+        width: 15px;
+        background-color: #6200EE;
+        border-radius: 50%;
+        outline: 13px solid rgba(98, 0, 238, 0.04);
+        -webkit-appearance: none;
+        z-index:99;
+    }
+    pointer-events: none;
+    &::-webkit-slider-thumb {
+        pointer-events: auto;
+  }
+}

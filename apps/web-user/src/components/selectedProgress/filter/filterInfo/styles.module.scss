@@ -1,0 +1,38 @@
+@import '/src/styles/utils/utils';
+$width: 85vw;
+.commonAttributes{
+    font: {
+        size: 1.25em;
+        weight: 700;
+    }
+    margin:0 5px;
+}
+.title{
+    @extend .commonAttributes;
+    color: #0E1315;
+
+}
+.priceResult{
+    @extend .commonAttributes;
+    color:#842CFF;
+    font-size: 0.9em;
+    position: absolute;
+    right: 0;
+    max-width: 42vw;
+}
+.timeResult{
+    @extend .commonAttributes;
+    color:#842CFF;
+    font-size: 0.9em;
+    position: absolute;
+    right: 0;
+}
+.filterInfo{
+    display: flex;
+    justify-content: space-between;
+    width: $width;
+    position: relative;
+    margin:20px;
+    flex-wrap: wrap; 
+}
+

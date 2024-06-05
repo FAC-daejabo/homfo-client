@@ -1,0 +1,45 @@
+@import '/src/styles/utils/utils';
+$background-color:white;
+.container{
+    @include entireContainer($background-color);
+    align-items: center;
+}
+.inputBox{
+    display: flex;
+    margin-top: 10vh;
+    align-items: center;
+    flex-direction: column;
+}
+.input{
+    width: 88vw;
+    height: 5vh;
+    color: #D3D3D3;
+    margin:2px;
+    border:1px solid;
+    border-color: #D3D3D3;
+}
+.verifyButton {
+   width:28.5vw;
+   height:5.5vh; 
+   background-color: white;
+   border: 1px solid;
+}
+
+.button{
+    color:white;
+    font: {
+        weight: 700;
+        size: 1em;
+    }
+    margin-top: 5vh;
+    width: 89vw;
+    height: 5vh;
+    background: linear-gradient(180deg, #842CFF 0%, #7674F5 100%);
+    border:0px;
+}
+.textButton{
+    font-size: 13px;
+    margin-top: 13px;
+    text-decoration: underline;
+    color:#6D6D6D;
+}

@@ -1,0 +1,6 @@
+@import '/src/styles/utils/utils';
+$background-color:#F5F5F5;
+.container{
+    @include entireContainer($background-color);
+    align-items: center;
+}
