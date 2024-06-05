@@ -30,6 +30,7 @@ const getNewToken = async () => {
     const res = await axios.patch(`${SERVER_DEPLOY_URL}/employees/refreshes`,  {token: refresh_token}, config);
     localStorage.setItem("access-token",res.data.accessToken); 
     localStorage.setItem("expired-at", moment().add(EXPIRED_TIME, "minute").format("yyyy-MM-DD HH:mm:ss"))
+
     return res.data.accessToken;
   } catch (error: any) {
     if (error.response.status === 401 || error.response.status === 400){

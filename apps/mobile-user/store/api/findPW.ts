@@ -9,7 +9,7 @@ export const registerNewPassword = async (phonenumber: string, password: string)
             "phoneNumber": phonenumber,
             "newPassword": password
         }
-      const res: AxiosResponse = await fetchFromApi('POST',`/users/updates/password`, data);
+      const res: AxiosResponse = await fetchFromApi('PATCH',`/users/updates/password`, data);
       return true;
     } catch (error: any) {
       Alert.alert(error.response.data.message)
