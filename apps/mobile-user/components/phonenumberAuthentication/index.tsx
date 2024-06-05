@@ -34,7 +34,6 @@ interface PhoneAuthProps {
                 "phoneNumber": phonenumber,
                 "type": props.smsCodeType,
             }
-            console.log(props.smsCodeType)
             const res = await fetchFromApi('POST', `/users/validate/smsCode`, body);
             if (res.status === 200) { 
                 setCount(count+1);
@@ -75,13 +74,12 @@ interface PhoneAuthProps {
             }
         }
     const authenticationVerify = async (): Promise<void> => {
-        let data = {
-            "phoneNumber":phonenumber,
-            "code": verifyNumber,
-            "type": props.smsCodeType,
-          }
-          console.log(props.smsCodeType)
         try {
+            let data = {
+                "phoneNumber":phonenumber,
+                "code": verifyNumber,
+                "type": props.smsCodeType,
+              }
             const res = await fetchFromApi('PATCH', `/users/validate/smsCode`,data);
             if (res.status === 200) {
                 resetTimer();
