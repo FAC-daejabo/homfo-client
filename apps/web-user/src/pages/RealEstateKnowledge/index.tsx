@@ -5,9 +5,10 @@ import MainKnowledge from '../../components/organisms/RealEstateKnowledge/MainKn
 import KnowledgeContainer from '../../components/organisms/RealEstateKnowledge/KnowledgeContainer';
 
 import styles from './styles.module.scss';
-import { fetchFromApi } from '../../utils/axios';
+
 import { userInfo } from 'os';
 import useUserStore from '../../store/context/useUserStore';
+import { fetchFromApi } from '@homfo-client/util';
 
 function RealEstateKnowlegde() {
     const [option, setOption] = useState<string>('recent');

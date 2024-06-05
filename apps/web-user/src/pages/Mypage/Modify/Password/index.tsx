@@ -2,8 +2,9 @@ import React,{useState,useEffect} from "react";
 import Header from "../../../../components/layout/header";
 import styles from '../styles.module.scss'
 import { useNavigate } from "react-router-dom";
-import { fetchFromApi } from "../../../../utils/axios";
+import { fetchFromApi } from '@homfo-client/util';
 import useUserStore from "../../../../store/context/useUserStore";
+
 const ModifyPassword = ()=>{
     const navigate = useNavigate();
     const [password, setPassword]=useState({currentPassword:"", newPassword:"", checkPassword:"",});
@@ -19,7 +20,7 @@ const ModifyPassword = ()=>{
     }
     const fetchModityInfo = async ()=>{
         try {
-          let data = {currentPassword: currentPassword, newPassword:newPassword}
+          const data = {currentPassword: currentPassword, newPassword:newPassword}
           const res = await fetchFromApi('PATCH',`/users/${userInfo.userId}/password`, data);
           if (res.status === 200) {
             alert("비밀번호가 변경되었습니다.");

@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react';
 import Header from '../../../components/layout/header';
 import { DetailContainer } from '../../RealEstateKnowledge/Detail';
 import { useParams } from 'react-router-dom';
-import { fetchFromApi } from '../../../utils/axios';
 import useUserStore from '../../../store/context/useUserStore';
 import styles from './styles.module.scss';
+import { fetchFromApi } from '@homfo-client/util';
 
 interface ISensesDetail {
     senseId: number;
