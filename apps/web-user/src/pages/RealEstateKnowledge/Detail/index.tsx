@@ -4,8 +4,6 @@ import Slider from 'react-slick';
 
 import Header from '../../../components/layout/header';
 
-import { fetchFromApi } from '../../../utils/axios';
-
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import styles from './styles.module.scss';
@@ -15,6 +13,7 @@ import emptyScrap from '../../../assets/icons/senses/empty_scrap.svg';
 import fillHeart from '../../../assets/icons/senses/fill_heart.svg';
 import fillScrap from '../../../assets/icons/senses/fill_scrap.svg';
 import useUserStore from '../../../store/context/useUserStore';
+import { fetchFromApi } from '@homfo-client/util';
 
 interface ISensesDetail {
     senseId: number;

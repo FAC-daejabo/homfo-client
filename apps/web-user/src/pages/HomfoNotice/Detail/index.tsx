@@ -2,10 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 import Header from '../../../components/layout/header';
-
 import styles from './styles.module.scss';
-import { fetchFromApi } from '../../../utils/axios';
+
 import { formatDateWithComma } from '../../../utils/getDate';
+import { fetchFromApi } from '@homfo-client/util';
 
 interface INoticeDetail {
     id: number;

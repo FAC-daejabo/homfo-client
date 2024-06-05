@@ -2,9 +2,10 @@ import React,{useState,useEffect} from "react";
 import Header from "../../../../components/layout/header";
 import styles from '../styles.module.scss'
 import { useNavigate } from "react-router-dom";
-import { fetchFromApi } from "../../../../utils/axios";
 import useTimerStore from "../../../../store/context/useTimerStore";
 import useUserStore from "../../../../store/context/useUserStore";
+import { fetchFromApi } from "@homfo-client/util";
+
 const ModifyPhonenumber = ()=>{
     const [open, setOpen] = useState<boolean>(false)
     const [phonenumber, setPhonenumber] = useState<string>("") 
@@ -16,7 +17,7 @@ const ModifyPhonenumber = ()=>{
     const [errorMessage, setErrorMessage]=useState<boolean>(false);
     const { isRunning, remainingTime, startTimer, resetTimer} = useTimerStore();
     const authenticationRequest = async (): Promise<void> => {
-        let data = {'userPhoneNum': phonenumber}
+        const data = {'userPhoneNum': phonenumber}
         try {
             setOpen(true)
             setCount((prev)=>prev+1);
@@ -32,7 +33,7 @@ const ModifyPhonenumber = ()=>{
     };
 
     const authenticationVerify = async (): Promise<void> => {
-        let data = {
+        const data = {
             "userPhoneNum":phonenumber,
             "authNumber": verifyNumber,
           }

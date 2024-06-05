@@ -2,11 +2,11 @@ import React, { useEffect, useState } from 'react';
 import Header from '../../components/layout/header';
 
 import styles from './styles.module.scss';
-import { fetchFromApi } from '../../utils/axios';
 
 import SenseContainer from '../../components/organisms/bookmarks/SenseContainer';
 import useUserStore from '../../store/context/useUserStore';
 import AreaContainer from '../../components/organisms/bookmarks/AreaContainer';
+import { fetchFromApi } from '@homfo-client/util';
 
 interface ISense {
     senseId: number;
@@ -40,7 +40,7 @@ interface IArea {
 export default function Bookmarks() {
     const { userInfo } = useUserStore();
     const userId = userInfo.userId;
-    const [isArea, setIsArea] = useState<Boolean>(true);
+    const [isArea, setIsArea] = useState<boolean>(true);
 
     const [areaData, setAreaData] = useState<IArea[]>([]);
     const [senseData, setSenseData] = useState<ISense[]>([]);

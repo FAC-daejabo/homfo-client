@@ -1,14 +1,11 @@
 import React, { useState, useEffect } from 'react';
-
 import Header from '../../components/layout/header';
-
 import notice_icon from '../../assets/icons/home/notice_icon.svg';
-
 import styles from './styles.module.scss';
 import NoticeBlock from '../../components/molecules/Notice/NoticeBlock';
-import { fetchFromApi } from '../../utils/axios';
 import { INotice } from '../../@types/notice';
 import useUserStore from '../../store/context/useUserStore';
+import { fetchFromApi } from '@homfo-client/util';
 
 function HomfoNotice() {
 
