@@ -12,8 +12,8 @@ export const fetchFromApi = async (method: Method | undefined, url: string, data
     }
     return axios({
         method,
-        // url: SERVER_PRODUCTION_URL  + url,
-        url: SERVER_DEPLOY_URL  + url,
+        url: SERVER_PRODUCTION_URL  + url,
+        // url: SERVER_DEPLOY_URL  + url,
         data,
         headers,
     })
