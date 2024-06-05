@@ -45,7 +45,6 @@ const getNewToken = async () => {
 axios.interceptors.request.use(
   async (config: any) => {
     try {
-      // const expired_at = localStorage.getItem("expired-at");
       const access_token = localStorage.getItem("access-token");
       if (access_token) {
         config.headers.Authorization = `Bearer ${access_token}`;
