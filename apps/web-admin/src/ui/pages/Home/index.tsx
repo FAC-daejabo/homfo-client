@@ -8,6 +8,7 @@ function Home() {
     useEffect(()=>{
         fetchUserInfo();
     },[])
+    
     return (
         <div className={styles.container}>
             <SideBar/>
