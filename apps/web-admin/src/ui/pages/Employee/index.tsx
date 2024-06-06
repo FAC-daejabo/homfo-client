@@ -8,7 +8,7 @@ function Employee() {
         <div className={styles.container}>
             <SideBar/>
             <div className={styles.contents}>
-                <div className = {styles.header}>
+                <div className = {styles.header}> 
                     회원관리 &rarr; 관리자 직원 조회
                 </div>
                 <ApprovalEmployeeTable/>
