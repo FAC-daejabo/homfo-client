@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import styles from './styles.module.scss';
-import SideBar from '../../components/layout/sideBar';
 import useUserStore from '../../../store/context/useUserStore';
+import SideBar from '../../../ui/components/layout/SideBar';
 
 function Home() {
     const { fetchUserInfo } = useUserStore();

@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import styles from './styles.module.scss';
-import SideBar from '../../components/layout/sideBar';
 import EnrollForm from './enrollForm';
 import LoadingModal from '../../components/agengy/modal';
 import usePartnerAgencyStore from '../../../store/context/usePartenerAgencyStore';
+import SideBar from '../../../ui/components/layout/SideBar';
 function EnrollRealtor() {
     const { agencyInfo } = usePartnerAgencyStore();
     const [modalOpen, setModalOpen] = useState<boolean>(false);
