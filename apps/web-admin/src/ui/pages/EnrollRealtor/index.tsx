@@ -13,7 +13,6 @@ function EnrollRealtor() {
     return (
         <div className={styles.container}>
             <SideBar/>
-            
             <div className={styles.contents}>
                 <div className = {styles.header}>
                     <div>협력 공인중개사 관리 &rarr; 협력 공인중개사 정보 등록</div>
