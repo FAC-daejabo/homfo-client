@@ -3,7 +3,7 @@ import styles from './styles.module.scss'
 import { logo } from "../../../../assets/logo/icon"
 import { useNavigate } from 'react-router-dom';
 import { signOut, withdrawal } from "../../../../apis/user/login";
-const SideBar  =()=>{
+const SideBar: React.FC  =()=>{
     const navigate = useNavigate();
     const handleSignout = async () => {
         if (await signOut()){
