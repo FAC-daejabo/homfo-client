@@ -13,6 +13,7 @@ export const Amenities = ({name, image, count, onClick}: AmenitiesProps)=>{
             <img 
                 alt={name}
                 src={image}
+                
             />
             <div className={styles.optionCountContainer}><span>{count}</span></div>
         </div>
