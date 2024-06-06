@@ -4,7 +4,7 @@ interface AmenitiesProps {
     name : string;
     image: string;
     count: number;
-    onClick: ()=>void;
+    onClick: ()=>void; 
 }
 export const Amenities = ({name, image, count, onClick}: AmenitiesProps)=>{
     return(
