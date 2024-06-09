@@ -2,7 +2,7 @@ import React, { useState,useEffect } from 'react';
 import styles from './styles.module.scss';
 import Table from '../../../components/table';
 import { getEmployeesInfo } from '../../../../apis/employee/employee';
-import { ITotalEmployee, employee } from '@web-admin/store/type/employee/type';
+import { ITotalEmployee, employee } from '../../../../store/type/employee/type';
 import Pagination from '../../../..//ui/components/layout/pagination';
 import TableData from './tableData';
 import useRenderingStore from '../../../../store/context/employeeRendering';
