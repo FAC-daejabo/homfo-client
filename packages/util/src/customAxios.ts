@@ -94,7 +94,7 @@ export const fetchFromApi = async (
     try {
       const response = await axios({
         method,
-        url:  SERVER_DEPLOY_URL+url,
+        url:  SERVER_PRODUCTION_URL+url,
         data,
         params
       });
