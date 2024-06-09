@@ -10,10 +10,10 @@ axios.defaults.paramsSerializer = (params) => {
 export const EXPIRED_TIME = 1;
 
 const SERVER_DEPLOY_URL = 'https://dev-server.homfo.co.kr/api';
-const SERVER_PRODUCTION_URL = 'https://prod-server.homfo.co.kr/api';
+// const SERVER_PRODUCTION_URL = 'https://prod-server.homfo.co.kr/api';
 
 const axiosInstance = axios.create({
-  baseURL: SERVER_PRODUCTION_URL 
+  baseURL: SERVER_DEPLOY_URL 
 });
 
 
@@ -27,7 +27,7 @@ const getNewToken = async () => {
         'Content-Type': 'application/json'
       }
     };
-    const res = await axios.patch(`${SERVER_PRODUCTION_URL}/employees/refreshes`,  {token: refresh_token}, config);
+    const res = await axios.patch(`${SERVER_DEPLOY_URL}/employees/refreshes`,  {token: refresh_token}, config);
     localStorage.setItem("access-token",res.data.accessToken); 
     localStorage.setItem("expired-at", moment().add(EXPIRED_TIME, "minute").format("yyyy-MM-DD HH:mm:ss"))
 
