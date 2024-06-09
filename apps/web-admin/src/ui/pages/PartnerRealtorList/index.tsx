@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import styles from './styles.module.scss';
 import { getPartnerRealtorsList } from '../../../apis/realtor/realtor';
 import SideBar from '../../components/layout/SideBar';
+
 function PartnerRealtorList() {
     useEffect(()=>{
         getPartnerRealtorsList();

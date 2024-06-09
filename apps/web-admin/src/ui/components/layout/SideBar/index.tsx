@@ -34,7 +34,7 @@ const SideBar: React.FC  =()=>{
         <div className={styles.tap}>
             <div style={{fontWeight: 700}}>협력 중개업소 관리</div>
             <li
-                onClick={()=>navigate("/agencymanage/enroll")}
+                onClick={()=>navigate("/")}
             >
                 협력 중개업소 등록
             </li>
