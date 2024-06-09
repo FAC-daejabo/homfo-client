@@ -24,7 +24,7 @@ interface registerProps {
 export const FirstStep = ({formData, onChangeText, possible, setPossible}: registerProps)=>{
     
     const [message, setMessage] = useState({"nickname":"영문(대소문자가능),숫자,한글 가능 8~15글자 {'\n'}닉네임을 입력해주세요.",
-     "account":"영문,숫자만 포함 8-15글자의 아이디를 입력해주세요.", "password":"영문,숫자,특수기호 포함 8~15글자의 비밀번호를 입력해주세요.", 
+     "account":"영문,숫자만 포함 8-15글자의 아이디를 입력해주세요.", "password":"영문 대문자,숫자,특수기호 포함 8~15글자의 비밀번호를 입력해주세요.", 
      "checkPassword": "비밀번호를 다시 한 번 입력해주세요."});
     const [color, setColor]= useState({"nickname":"#D1D1D1","account":"#D1D1D1","password":"#D1D1D1", "checkPassword":"#D1D1D1"});
     const [checkPassword, setCheckPassword] = useState<string>("");
@@ -95,7 +95,7 @@ export const FirstStep = ({formData, onChangeText, possible, setPossible}: regis
         }
        }, [debouncedId]);
 
-       const passwordRegax=  /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,15}$/
+       const passwordRegax= /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#&()[\]{}:;',?/*~$^+=<>]).{8,15}$/
        const debouncedPassword = useDebounce(formData.password, 500);
        useEffect(() => {
          if (debouncedPassword.length === 0){

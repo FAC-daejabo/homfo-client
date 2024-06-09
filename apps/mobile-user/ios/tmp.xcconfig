@@ -1,0 +1,2 @@
+ENV=DEVELOPMENT
+APP_API_URL=https:/$()/dev-server.homfo.co.kr/api
