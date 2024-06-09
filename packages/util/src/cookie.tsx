@@ -17,7 +17,7 @@ export const setCookie = (name: string, value: string, options?: any) => {
 
 // eslint-disable-next-line react-refresh/only-export-components
 export const getCookie = (name: string) => {
- return cookies.get(name); 
+ return cookies.get(name);  
 } 
 
 // eslint-disable-next-line react-refresh/only-export-components
