@@ -4,7 +4,7 @@ interface AmenitiesProps {
     name : string;
     image: string;
     count: number;
-    onClick: ()=>void;
+    onClick: ()=>void; 
 }
 export const Amenities = ({name, image, count, onClick}: AmenitiesProps)=>{
     return(
@@ -13,6 +13,7 @@ export const Amenities = ({name, image, count, onClick}: AmenitiesProps)=>{
             <img 
                 alt={name}
                 src={image}
+                
             />
             <div className={styles.optionCountContainer}><span>{count}</span></div>
         </div>

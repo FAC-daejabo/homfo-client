@@ -9,14 +9,15 @@ import { useDebounce } from "../../../hooks/useDebounce";
 import usePhoneNumberStore from "../../../store/context/useNumberStore";
 import { registerNewPassword } from "../../../store/api/findPW";
 const ResultPassword = ({navigation}:any) => {
-    const [message, setMessage] = useState({"password":"영문,숫자,특수기호 포함 8~15글자의 비밀번호를 입력해주세요.", 
+    const [message, setMessage] = useState({"password":"영문 대/소문자,숫자,특수기호 포함 8~15글자의 비밀번호를 입력해주세요.", 
     "checkPassword": "비밀번호를 다시 한 번 입력해주세요."});
    const [color, setColor]= useState({"password":"#D1D1D1", "checkPassword":"#D1D1D1"});
    const [password, setPassword] = useState<string>("");
    const [checkPassword, setCheckPassword] = useState<string>("");
    const {phonenumber, setPhonenumber} = usePhoneNumberStore();
 
-    const passwordRegax=  /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,15}$/
+    // const passwordRegax=  /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,15}$/
+    const passwordRegax=/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#&()[\]{}:;',?/*~$^+=<>]).{8,15}$/
     const debouncedPassword = useDebounce(password, 500);
 
     const handleRegisterPassword = async ()=>{
@@ -27,7 +28,7 @@ const ResultPassword = ({navigation}:any) => {
     
     useEffect(() => {
         if (!passwordRegax.test(debouncedPassword)){
-          setMessage(prev=>({...prev,"password":"영문,숫자,특수기호 포함 8~15글자의 비밀번호를 입력해주세요."}));
+          setMessage(prev=>({...prev,"password":"영문 대/소문자,숫자,특수기호 포함 8~15글자의 비밀번호를 입력해주세요."}));
           setColor(prev=>({...prev,"password":"#D1D1D1"}));
        } else {
          setMessage(prev=>({...prev,"password":"사용 가능한 비밀번호입니다."}));

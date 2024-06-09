@@ -3,7 +3,8 @@ import styles from './styles.module.scss';
 import EnrollForm from './enrollForm';
 import LoadingModal from '../../components/agengy/modal';
 import usePartnerAgencyStore from '../../../store/context/usePartenerAgencyStore';
-import SideBar from '../../../ui/components/layout/SideBar';
+import SideBar from '../../components/layout/SideBar';
+
 function EnrollRealtor() {
     const { agencyInfo } = usePartnerAgencyStore();
     const [modalOpen, setModalOpen] = useState<boolean>(false);

@@ -68,20 +68,30 @@ def enableProguardInReleaseBuilds = false
  * this variant is about 6MiB larger per architecture than default.
  */
 def jscFlavor = 'org.webkit:android-jsc:+'
+apply from: project(':react-native-config').projectDir.getPath() + "/dotenv.gradle"
+
+project.ext.envConfigFiles = [
+     developdebug: "env/.env.development",
+     developrelease: "env/.env.development", 
+     productdebug: "env/.env.production",    
+     productrelease: "env/.env.production",
+     anothercustombuild: ".env",
+]
 
 android {
     ndkVersion rootProject.ext.ndkVersion
     buildToolsVersion rootProject.ext.buildToolsVersion
     compileSdk rootProject.ext.compileSdkVersion
 
-    namespace "com.mobileuser"
+    namespace "com.fac.homfo"
     defaultConfig {
-        applicationId "com.mobileuser"
+        applicationId "com.fac.homfo"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 1
+        versionCode 6
         versionName "1.0"
     }
+
     signingConfigs {
         debug {
             storeFile file('debug.keystore')
@@ -90,6 +100,15 @@ android {
             keyPassword 'android'
         }
     }
+    flavorDimensions "version"
+
+    productFlavors {
+        develop {
+        }
+        product {
+        }
+    }
+
     buildTypes {
         debug {
             signingConfig signingConfigs.debug
