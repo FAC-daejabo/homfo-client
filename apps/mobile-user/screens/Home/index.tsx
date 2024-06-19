@@ -1,6 +1,7 @@
 import React, {useEffect, useRef, useState} from 'react';
 import WebView, { WebViewMessageEvent } from 'react-native-webview';
 import { BackHandler} from 'react-native';
+import Config from 'react-native-config'
 import { clearAsyncStorage, getData, removeData } from '../../utils/asyncStorage';
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 
@@ -56,7 +57,7 @@ const Home = ({ navigation }: any) => {
         ref={webViewRef}
         startInLoadingState
         injectedJavaScript="window.ReactNativeWebView.postMessage(document.title)"
-        source={{uri: 'https://dev-mobile.homfo.co.kr'}}
+        source={{uri: Config.WEBVIEW_URL}}
         javaScriptEnabled={true}
         onMessage={onMessage}
         mediaCapturePermissionGrantType="grant"
