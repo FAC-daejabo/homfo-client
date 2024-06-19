@@ -9,7 +9,6 @@ export const signIn = async (id: string, password: string) => {
         password: password,
       }
       const res = await fetchFromApi("POST","/employees/sign-in", body);
-      console.log(res.data)
       localStorage.setItem('access-token',res.data.accessToken);
       setCookie("refresh-token", res.data.refreshToken, {path: '/'});
       localStorage.setItem("expired-at", moment().add(EXPIRED_TIME, "minute").format("yyyy-MM-DD HH:mm:ss"))

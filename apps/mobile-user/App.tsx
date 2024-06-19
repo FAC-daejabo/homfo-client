@@ -15,11 +15,10 @@ import SearchScreen from './screens/SearchNaver';
 import RegisterComplete from './screens/RegisterComplete';
 import Branding from './screens/BrandingPage';
 import { getData } from './utils/asyncStorage';
-import { fetchUserInfo } from './store/api/login';
-import { useUserStore } from './store/context/useUserStore';
+import { getTokenExpiredInfo } from './store/api/login';
+import AgreementDocs from './screens/Agreement/collectMarketingInformation';
 const Stack = createStackNavigator();
 const App = () =>  {
-  const {userInfo, setUserInfo} = useUserStore();
   const [initialRoute, setInitialRoute] = useState<any>(null);
   useEffect(() => {
     setTimeout(() => {
@@ -40,33 +39,23 @@ const App = () =>  {
     }
 
 }, []);
+
   useEffect(() => {
     const checkInitialValue = async () => {
       try {
         const initialValue = await getData("initial");
         if (initialValue === "TRUE") {
-          const token = await getData("token");
-          if (token !== null) {
-            const userInfo = await fetchUserInfo(token, setUserInfo);
-            console.log(userInfo)
-            if (userInfo) {
-              setInitialRoute("Home");
-            } else {
-              setInitialRoute("로그인");
-            }
-          } else {
-            setInitialRoute("로그인");
-          }
+          setInitialRoute(await getTokenExpiredInfo());
         } else {
           setInitialRoute("브랜딩");
         }
-      } catch (error) {
-        setInitialRoute("브랜딩");
-      }
+        } catch (error) {
+          setInitialRoute("브랜딩");
+        }
     };
-
     checkInitialValue();
-  }, []); // 컴포넌트 마운트 시 한 번 실행하도록 빈 의존성 배열을 사용
+  }, []); 
+  // 컴포넌트 마운트 시 한 번 실행하도록 빈 의존성 배열을 사용
 
   if (initialRoute === null) {
     // 초기 경로가 결정될 때까지 로딩 표시기를 표시할 수 있습니다.
@@ -151,6 +140,16 @@ const App = () =>  {
           <Stack.Screen 
             name="이용 약관 동의" 
             component={Agreement}
+            options={{
+              title: '',
+              headerBackTitleVisible: false,
+              headerTintColor:'black',
+              headerShadowVisible: false 
+          }}/>
+
+          <Stack.Screen 
+            name="이용약관동의문서" 
+            component={AgreementDocs}
             options={{
               title: '',
               headerBackTitleVisible: false,

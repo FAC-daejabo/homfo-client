@@ -1,5 +1,5 @@
 import React,{useEffect, useState} from "react";
-import { View, Text, Button, TouchableOpacity, TextInput} from "react-native"
+import { TouchableOpacity} from "react-native"
 import { ButtonText, CommentText, Container, InputContainer, NotifyText, StyledTextInput } from "../style";
 import Header from "../../../components/layout/header";
 import { xButton } from "../../../assets/icons/register/registerIcon";

@@ -9,10 +9,11 @@ import { SmsCodeType, UserFormData } from '../../store/interface/userForm';
 import { FirstStep } from './step/FirstStep';
 import { SecondStep } from './step/SecondStep';
 import { registerUserInfo } from '../../store/api/register';
-const Register = ({ navigation }: any) => {
+const Register = ({ route, navigation }: any) => {
   const [step, setStep] = useState<number>(0);
   const [verifyComplete, setVerifyComplete]=useState(false);
   const {phonenumber, setPhonenumber} = usePhoneNumberStore();
+  const { marketingAgreement } = route.params;
   const [possible, setPossible]= useState({"nickname":false,"account":false,"password":false,"checkPassword":false});
   const [formData, setFormData] = useState<UserFormData>({
     account: "",
@@ -25,8 +26,8 @@ const Register = ({ navigation }: any) => {
   });
   const [detailJob, setDetailJob] = useState<string>("");
   const handleRegister = async ()=>{
-    if (await registerUserInfo(formData, detailJob, phonenumber)){
-      navigation.navigate("회원가입 완료")
+    if (await registerUserInfo(formData, detailJob, phonenumber, marketingAgreement)){
+      navigation.navigate("Home")
     }
   }
   const onChangeText = (name: string, value: string) => {

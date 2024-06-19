@@ -11,47 +11,50 @@ import { Result } from '../../store/type/homfoRecommend&request/interface';
 import { getAreaDetailResult, getHomfoArea } from '../../services/homfoArea/api';
 import '../../pages/HomfoRecommendResult/resultPage/internal-modules-scss/slick-theme.scss'
 import '../../pages/HomfoRecommendResult/resultPage/internal-modules-scss/slick.scss'
+import axios from 'axios';
 
 function Home() {
     const navigate = useNavigate();
     const { result } = useHomfoSurveyStore();
     const { userInfo, setUserInfo } = useUserStore();
     const { setResult, setResultDetail} = useHomfoSurveyStore();
-    const handleUserInfo = (e: any)=>{
-        let data = JSON.parse(e.data);
-        localStorage.setItem("token", data.token);
-        setUserInfo(data);
-    }
-    useEffect(()=>{
-        window.ReactNativeWebView.postMessage("onLoad");
-        window.addEventListener('message',(e) => handleUserInfo(e))
-        document.addEventListener('message',(e:any) => handleUserInfo(e));
-    },[window?.ReactNativeWebView])
+    // const handleUserInfo = (e: any)=>{
+    //     const data = JSON.parse(e.data);
+    //     localStorage.setItem("token", data.token);
+    //     setUserInfo(data);
+    // }
+    // useEffect(()=>{
+    //     window.ReactNativeWebView.postMessage("onLoad");
+    //     // window.addEventListener('message',(e) => handleUserInfo(e))
+    //     // document.addEventListener('message',(e:any) => handleUserInfo(e));
+    //     window.addEventListener('message',(e) => console.log(e))
+    //     document.addEventListener('message',(e:any) => console.log(e));
+    // },[window?.ReactNativeWebView])
     
-    useEffect(()=>{
-            const fetchHomfoRecommendData = async () => {
-                try {
-                  const homfoInfo:Result[]= await getHomfoArea(userInfo.userId);
-                  if (homfoInfo.length !== 0){
-                    setResult(homfoInfo);
-                    const resultArray = await Promise.all(
-                        homfoInfo.map(async (item:Result) => {
-                          const areaId = item.area.areaId;
-                          const detail = await getAreaDetailResult(areaId);
-                          return {
-                            areaId,
-                            detail,
-                          };
-                        })
-                      );
-                    setResultDetail(resultArray);
-                  }
-                } catch (e) {
-                  console.log(e);
-                }
-              };
-            fetchHomfoRecommendData(); 
-    },[userInfo])
+    // useEffect(()=>{
+    //         const fetchHomfoRecommendData = async () => {
+    //             try {
+    //               const homfoInfo:Result[]= await getHomfoArea(userInfo.userId);
+    //               if (homfoInfo.length !== 0){
+    //                 setResult(homfoInfo);
+    //                 const resultArray = await Promise.all(
+    //                     homfoInfo.map(async (item:Result) => {
+    //                       const areaId = item.area.areaId;
+    //                       const detail = await getAreaDetailResult(areaId);
+    //                       return {
+    //                         areaId,
+    //                         detail,
+    //                       };
+    //                     })
+    //                   );
+    //                 setResultDetail(resultArray);
+    //               }
+    //             } catch (e) {
+    //               console.log(e);
+    //             }
+    //           };
+    //         fetchHomfoRecommendData(); 
+    // },[userInfo])
     return (
         <div className={styles.container} style={{paddingTop: `${userInfo.top/2}px`}}>
             <div className={styles.topContainer}>
@@ -87,7 +90,7 @@ function Home() {
                         <img src={noticeIcon} alt="" />
                     </div>
                 </div>
-                <Banner />
+                {/* <Banner /> */}
                 <div className={styles.locationContainer}>
                     <div
                         className={styles.locationBox}

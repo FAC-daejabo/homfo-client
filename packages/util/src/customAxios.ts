@@ -27,7 +27,7 @@ const getNewToken = async () => {
         'Content-Type': 'application/json'
       }
     };
-    const res = await axios.patch(`${SERVER_DEPLOY_URL}/employees/refreshes`,  {token: refresh_token}, config);
+    const res = await axios.patch(`${SERVER_DEPLOY_URL}/users/refreshes`,  {token: refresh_token}, config);
     localStorage.setItem("access-token",res.data.accessToken); 
     localStorage.setItem("expired-at", moment().add(EXPIRED_TIME, "minute").format("yyyy-MM-DD HH:mm:ss"))
 
@@ -46,6 +46,7 @@ axios.interceptors.request.use(
   async (config: any) => {
     try {
       const access_token = localStorage.getItem("access-token");
+      // const expired_at = localStorage.getItem("expired-at");
       if (access_token) {
         config.headers.Authorization = `Bearer ${access_token}`;
       }

@@ -1,22 +1,14 @@
 import React, {useEffect, useRef, useState} from 'react';
 import WebView, { WebViewMessageEvent } from 'react-native-webview';
-import { Alert, BackHandler, SafeAreaView, StatusBar, View } from 'react-native';
-import { useUserStore } from '../../store/context/useUserStore';
-import { clearAsyncStorage, removeData, storeData } from '../../utils/asyncStorage';
+import { BackHandler} from 'react-native';
+import { clearAsyncStorage, getData, removeData } from '../../utils/asyncStorage';
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 
 const Home = ({ navigation }: any) => {
   const insets = useSafeAreaInsets();
   const webViewRef = useRef<WebView>(null);
-  const {userInfo} = useUserStore();
   const [webViewKey, setWebViewKey] = useState<number>(0); 
 
-  useEffect(()=>{
-    if (userInfo !==undefined){
-      storeData("token", userInfo.token)
-    }
-  },[userInfo])
-  
   useEffect(() => {
     BackHandler.addEventListener('hardwareBackPress', () => {
         // 백 버튼 누름을 처리하는 사용자 정의 로직
@@ -32,9 +24,11 @@ const Home = ({ navigation }: any) => {
 }, []);
   const onMessage = (event: WebViewMessageEvent) => {
     const data = event.nativeEvent.data;
+    const refreshToken = getData("refresh-token");
+    const accessToken = getData("access-token")
       switch (data){
-          case "onLoad": // 웹뷰 load 시 로그인시 발급 해둔 토큰으로 fetch 해 두었던 유저 정보와 현재 Safe Area의 위 아래 높이 전송 
-            webViewRef?.current?.postMessage(JSON.stringify({...userInfo, top:insets.top, bottom:insets.bottom}));
+          case "onLoad": // 웹뷰 load 시 로그인시 발급 해둔 토큰값과 현재 Safe Area의 위 아래 높이 전송 
+            webViewRef?.current?.postMessage(JSON.stringify({accessToken,refreshToken,top:insets.top,bottom:insets.bottom}));
             break;
           case "tokenExpired":
             navigation.navigate("로그인");
@@ -62,8 +56,7 @@ const Home = ({ navigation }: any) => {
         ref={webViewRef}
         startInLoadingState
         injectedJavaScript="window.ReactNativeWebView.postMessage(document.title)"
-        source={{uri: 'https://dev-webview.homfo.co.kr'}}
-        // source={{uri: 'http://localhost:3000/'}}
+        source={{uri: 'https://dev-mobile.homfo.co.kr'}}
         javaScriptEnabled={true}
         onMessage={onMessage}
         mediaCapturePermissionGrantType="grant"

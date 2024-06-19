@@ -2,15 +2,13 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Text ,View, TextInput, Button, Alert, BackHandler } from 'react-native';
 import { Container, StyledTextInput, StyledText, TextView, LoginButton,VerticalLine, TextButton, PurpleText} from './style';
 import { TouchableOpacity } from 'react-native-gesture-handler';
-import { useUserStore } from '../../store/context/useUserStore';
 import { signIn } from '../../store/api/login';
 
 const Login = ({ navigation }: any) => {
   const [id, setId] = useState<string>("");
   const [password, setPassword] = useState<string>("");
-  const { userInfo, setUserInfo } = useUserStore();
   const onLoginEvent = async ()=>{
-    if (await signIn(id, password, setUserInfo)){
+    if (await signIn(id, password)){
       navigation.navigate('Home');  
     } else {
       setId("");

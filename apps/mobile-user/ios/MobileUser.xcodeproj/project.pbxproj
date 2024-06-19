@@ -30,7 +30,7 @@
 		00E356EE1AD99517003FC87E /* MobileUserTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MobileUserTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* MobileUserTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MobileUserTests.m; sourceTree = "<group>"; };
-		13B07F961A680F5B00A75B9A /* MobileUser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobileUser.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07F961A680F5B00A75B9A /* homfo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = homfo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = MobileUser/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = MobileUser/AppDelegate.mm; sourceTree = "<group>"; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = MobileUser/Images.xcassets; sourceTree = "<group>"; };
@@ -135,7 +135,7 @@
 		83CBBA001A601CBA00E9B192 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				13B07F961A680F5B00A75B9A /* MobileUser.app */,
+				13B07F961A680F5B00A75B9A /* homfo.app */,
 				00E356EE1AD99517003FC87E /* MobileUserTests.xctest */,
 			);
 			name = Products;
@@ -194,7 +194,7 @@
 			);
 			name = MobileUser;
 			productName = MobileUser;
-			productReference = 13B07F961A680F5B00A75B9A /* MobileUser.app */;
+			productReference = 13B07F961A680F5B00A75B9A /* homfo.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -470,10 +470,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Development";
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 77CG7A5827;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = MobileUser/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "홈포";
+				"INFOPLIST_KEY_CFBundleDisplayName[sdk=*]" = "홈포";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -484,8 +487,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = MobileUser;
+				PRODUCT_NAME = homfo;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -498,9 +500,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Development";
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 77CG7A5827;
 				INFOPLIST_FILE = MobileUser/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "홈포";
+				"INFOPLIST_KEY_CFBundleDisplayName[sdk=*]" = "홈포";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -511,8 +516,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = MobileUser;
+				PRODUCT_NAME = homfo;
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -596,6 +600,10 @@
 					"$(inherited)",
 					" ",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.homfo.homfo;
+				PRODUCT_MODULE_NAME = homfo;
+				PRODUCT_NAME = homfo;
+				PUBLIC_HEADERS_FOLDER_PATH = "$(CONTENTS_FOLDER_PATH)/Headers";
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 				USE_HERMES = true;
@@ -672,6 +680,10 @@
 					"$(inherited)",
 					" ",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.homfo.homfo;
+				PRODUCT_MODULE_NAME = homfo;
+				PRODUCT_NAME = homfo;
+				PUBLIC_HEADERS_FOLDER_PATH = "$(CONTENTS_FOLDER_PATH)/Headers";
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 				USE_HERMES = true;

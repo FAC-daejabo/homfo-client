@@ -18,7 +18,6 @@ const TermsOfUse = () => {
                 정책 및 약관을 클릭해 모든 내용을 확인해주세요.<br/>
                 개인정보는 서비스 이용에만 활용됩니다.<br/>
             </div>
-
             <div className={styles.agreement}>
                 <img 
                     src={userAgree?icon.Checked:icon.NotChecked}
